@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050505">
+  <title>CORE // Premium Checkout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --void: #050505;
+      --graphite: #141414;
+      --steel: #333333;
+      --steel-subtle: #222222;
+      --core-crimson: #E5142E;
+      --core-crimson-bright: #FF2A42;
+      --pulse: #FF3B53;
+      --text: #F2F2F2;
+      --muted: #888888;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      padding: 32px;
+      background: var(--void);
+      color: var(--text);
+      font-family: var(--font-body);
+      display: grid;
+      place-items: center;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(650px 430px at 50% 10%, rgba(229, 20, 46, 0.15), transparent 72%);
+    }
+    .page {
+      width: min(100%, 580px);
+      position: relative;
+      z-index: 2;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+    }
+    .brand::after {
+      content: "";
+      width: 14px;
+      height: 2px;
+      background: var(--core-crimson);
+      display: inline-block;
+      margin-left: -6px;
+    }
+    .panel {
+      overflow: hidden;
+      border: 1px solid var(--steel);
+      border-radius: 12px;
+      background: var(--graphite);
+      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.8), 0 0 40px rgba(229, 20, 46, 0.15);
+      position: relative;
+    }
+    .panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--core-crimson-bright);
+    }
+    .panel-head {
+      padding: 36px;
+      border-bottom: 1px solid var(--steel);
+    }
+    .kicker {
+      color: var(--core-crimson-bright);
+      font: 600 0.72rem var(--font-mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: block;
+    }
+    h1 {
+      margin-top: 12px;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    .intro {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+    .option {
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .perks-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.84rem;
+      color: #ccc;
+      margin: 10px 0 16px;
+    }
+    .perks-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .perks-list li svg {
+      width: 14px;
+      height: 14px;
+      color: var(--core-crimson-bright);
+      flex-shrink: 0;
+    }
+    .button {
+      width: 100%;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--core-crimson-bright);
+      background: var(--core-crimson);
+      color: #FFFFFF;
+      border-radius: 4px;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: var(--pulse);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 59, 83, 0.4);
+    }
+    .secondary-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }
+    .secondary-action a {
+      color: var(--muted);
+      text-decoration: underline;
+    }
+    .secondary-action a:hover {
+      color: var(--text);
+    }
+    .secure-note {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      color: var(--muted);
+      font: 400 0.7rem var(--font-mono);
+    }
+    .secure-note::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2ECC71;
+      box-shadow: 0 0 8px #2ECC71;
+    }
+    .back {
+      display: block;
+      width: max-content;
+      margin: 24px auto 0;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-decoration: none;
+    }
+    .back:hover {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <a class="brand" href="index.html">CORE</a>
+    <section class="panel">
+      <header class="panel-head">
+        <span class="kicker">CORE // PREMIUM ENTITLEMENT</span>
+        <h1>UNLOCK PERMANENT ACCESS.</h1>
+        <p class="intro">Bypass keysystems forever and gain instant execution access to all 20+ current and future supported game instances.</p>
+      </header>
+      <div class="option">
+        <ul class="perks-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Instant permanent license key generation</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Zero keysystem checkpoint requirements</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Priority 24/7 dedicated support &amp; Discord role</span>
+          </li>
+        </ul>
+        <a class="button" href="https://getaether.mysellauth.com/" target="_blank" rel="noopener">
+          CONTINUE TO SECURE STOREFRONT &nearr;
+        </a>
+        <div class="secondary-action">
+          <span class="secure-note">Checkout via SellAuth</span>
+        </div>
+      </div>
+    </section>
+    <a class="back" href="index.html">&larr; Return to CORE</a>
+  </main>
+</body>
+</html>

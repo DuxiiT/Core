@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORE | One Core. Every Game.</title>
+  <meta name="description" content="CORE is the premier unified multi-game platform for Roblox. High-performance architecture, universal multi-instance execution, and zero-compromise security.">
+  <meta name="theme-color" content="#050505">
+
+  <!-- Open Graph & Meta -->
+  <meta property="og:title" content="CORE // One Core. Every Game.">
+  <meta property="og:description" content="Premier multi-game operating system and execution framework.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://getcore.gg">
+
+  <!-- Typography: Space Grotesk (Display), Inter (Body), JetBrains Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./assets/core.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       SYSTEM NAVIGATION BAR (FIXED)
+       ======================================================================== -->
+  <header class="site-nav" id="siteNav">
+    <div class="container nav-grid">
+      <!-- Left: Brand Icon -->
+      <a class="nav-icon-wrap" href="#top" aria-label="CORE Home">
+        <img class="nav-icon-img" src="./assets/Icon.png" alt="CORE" width="36" height="36">
+      </a>
+
+      <!-- Center: Minimalist Geometric Wordmark -->
+      <a class="nav-brand" href="#top" aria-label="CORE Home">
+        <span class="nav-wordmark">CORE</span>
+      </a>
+
+      <!-- Right: Navigation Links & Primary Action -->
+      <div class="nav-actions">
+        <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+          <a class="nav-link" href="#library">GAMES</a>
+          <a class="nav-link" href="#simulator">UI</a>
+          <a class="nav-link" href="#tiers">TIERS</a>
+          <a class="nav-link" href="https://discord.gg/corehub" target="_blank" rel="noopener">DISCORD</a>
+          <a class="nav-link" href="#faq">FAQ</a>
+        </nav>
+        <button class="btn btn-primary nav-btn-init" id="navInitBtn" type="button">
+          COPY LOADER
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ========================================================================
+         HERO SECTION: THE SINGULARITY CORE
+         ======================================================================== -->
+    <section class="hero-section">
+      <!-- Volumetric Ambient Glow -->
+      <div class="hero-glow-layer" aria-hidden="true"></div>
+
+      <!-- The Singularity Canvas Core (Breathing sphere, accretion disk, particle drift) -->
+      <div class="singularity-canvas-wrap" aria-hidden="true">
+        <canvas id="singularityCanvas"></canvas>
+      </div>
+
+      <div class="container hero-content">
+        <!-- Telemetry Status Eyebrow -->
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span>Core · Systems online</span>
+        </div>
+
+        <!-- Master Title -->
+        <h1 class="hero-title">
+          ONE CORE.<br>
+          <span class="crimson-accent">EVERY GAME.</span>
+        </h1>
+
+        <!-- Confident, Technical Body Copy -->
+        <p class="hero-desc">
+          Launch Core from a single command. Every supported experience shares the same loader, update channel and support workflow.
+        </p>
+
+        <!-- Primary Action Cluster -->
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" id="heroInitBtn" type="button">
+            COPY LOADER
+          </button>
+          <a class="btn btn-secondary btn-lg" href="#library">
+            EXPLORE LIBRARY &darr;
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#simulator">
+            UI PREVIEW &rarr;
+          </a>
+        </div>
+
+        <!-- Live Telemetry HUD Strip -->
+        <div class="hero-telemetry" aria-label="System telemetry telemetry">
+          <div class="telemetry-cell">
+            <span class="cell-title">STATUS</span>
+            <span class="cell-val crimson">ONLINE</span>
+          </div>
+          <div class="telemetry-cell">
+            <span class="cell-title">SUPPORTED INSTANCES</span>
+            <span class="cell-val">20+ EXPERIENCES</span>
+          </div>
+          <div class="telemetry-cell">
+            <span class="cell-title">PRICING</span>
+            <span class="cell-val crimson">FREE TO START</span>
+          </div>
+          <div class="telemetry-cell">
+            <span class="cell-title">LAST UPDATE</span>
+            <span class="cell-val">A MINUTE AGO</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         INITIALIZATION TERMINAL / LOADER SNIPPET
+         ======================================================================== -->
+    <section class="terminal-section">
+      <div class="container terminal-container">
+        <div class="terminal-box">
+          <div class="terminal-bar">
+            <div class="terminal-dots">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+            </div>
+            <span class="terminal-caption">CORE // UNIVERSAL LOADER</span>
+            <span class="terminal-state">READY</span>
+          </div>
+          <div class="terminal-body">
+            <div class="command-row">
+              <span class="command-prompt">&gt;</span>
+              <code class="command-code" id="terminalCommandCode">
+                <span class="kw">loadstring</span>(game:<span class="fn">HttpGet</span>(<span class="str">"https://getcore.gg/loader.lua"</span>))()
+              </code>
+              <button class="copy-btn" id="terminalCopyBtn" type="button">
+                [ COPY ]
+              </button>
+            </div>
+            <div class="terminal-stream" aria-live="polite">
+              <div class="log-entry">
+                <span class="log-stamp">[0.001s]</span>
+                <span class="log-tag">[NETWORK]</span>
+                <span class="log-msg">Resolving loader endpoint...</span>
+              </div>
+              <div class="log-entry">
+                <span class="log-stamp">[0.004s]</span>
+                <span class="log-tag">[MODULES]</span>
+                <span class="log-msg">20 supported experiences available</span>
+              </div>
+              <div class="log-entry success">
+                <span class="log-stamp">[0.009s]</span>
+                <span class="log-tag">[READY]</span>
+                <span class="log-msg">Waiting for execution</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SUPPORTED INSTANCES / GAME LIBRARY GRID
+         ======================================================================== -->
+    <section class="library-section" id="library">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">GAME LIBRARY</span>
+          <h2 class="section-title">Made for the games you actually play.</h2>
+          <p class="section-desc">
+            From competitive shooters to simulators, Core's library keeps expanding. Each experience gets tools designed around its own gameplay.
+          </p>
+        </div>
+
+        <!-- Library Filter & Search Controls -->
+        <div class="library-controls">
+          <div class="filter-group">
+            <button class="filter-btn active" type="button" data-filter="all">ALL INSTANCES</button>
+            <button class="filter-btn" type="button" data-filter="competitive">COMPETITIVE</button>
+            <button class="filter-btn" type="button" data-filter="survival">SURVIVAL</button>
+            <button class="filter-btn" type="button" data-filter="strategy">STRATEGY</button>
+            <button class="filter-btn" type="button" data-filter="simulator">SIMULATORS</button>
+          </div>
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input class="search-input" id="librarySearch" type="text" placeholder="Search game or category..." aria-label="Search games">
+          </div>
+        </div>
+
+        <!-- Dynamic Game Grid (Rendered via core.js) -->
+        <div class="library-grid" id="libraryGrid">
+          <!-- Populated by JavaScript with strict CORE // [GAME] naming format -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         IN-GAME CLIENT UI SIMULATOR ("THE ENGINE")
+         Faithful digital replica of the exact Lua CoreRed script
+         ======================================================================== -->
+    <section class="simulator-section" id="simulator">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">PREVIEW</span>
+          <h2 class="section-title">THE IN-GAME UI.</h2>
+          <p class="section-desc">
+            Interact with a live digital replica of CORE’s in-game interface.
+          </p>
+        </div>
+
+        <div class="sim-window-wrapper">
+          <div class="sim-window-shadow">
+            <div class="sim-window" id="simWindowFrame">
+              <!-- Top accent ambient glow line -->
+              <div class="sim-top-glow"></div>
+
+              <!-- SIDEBAR (Left Column: Logo + Tabs + Account Profile) -->
+              <aside class="sim-sidebar">
+                <div class="sim-logo-frame">
+                  <svg class="sim-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M9 3v18"/>
+                    <circle cx="15" cy="12" r="1.5" fill="currentColor"/>
+                  </svg>
+                  <span class="sim-logo-text">CORE <span class="sim-logo-version">v1.0</span></span>
+                </div>
+
+                <div class="sim-tab-list" role="tablist">
+                  <button class="sim-tab-btn active" type="button" role="tab" data-tab="start">
+                    <div class="sim-tab-indicator"></div>
+                    <svg class="sim-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                      <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    <div class="sim-tab-info">
+                      <span class="sim-tab-title">START</span>
+                      <span class="sim-tab-sub">Overview &amp; System</span>
+                    </div>
+                  </button>
+
+                  <button class="sim-tab-btn" type="button" role="tab" data-tab="combat">
+                    <div class="sim-tab-indicator"></div>
+                    <svg class="sim-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <line x1="22" y1="12" x2="18" y2="12"/>
+                      <line x1="6" y1="12" x2="2" y2="12"/>
+                      <line x1="12" y1="6" x2="12" y2="2"/>
+                      <line x1="12" y1="22" x2="12" y2="18"/>
+                    </svg>
+                    <div class="sim-tab-info">
+                      <span class="sim-tab-title">COMBAT</span>
+                      <span class="sim-tab-sub">Aim Assist &amp; Precision</span>
+                    </div>
+                  </button>
+
+                  <button class="sim-tab-btn" type="button" role="tab" data-tab="visuals">
+                    <div class="sim-tab-indicator"></div>
+                    <svg class="sim-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    <div class="sim-tab-info">
+                      <span class="sim-tab-title">VISUALS</span>
+                      <span class="sim-tab-sub">ESP &amp; Chams Engine</span>
+                    </div>
+                  </button>
+
+                  <button class="sim-tab-btn" type="button" role="tab" data-tab="system">
+                    <div class="sim-tab-indicator"></div>
+                    <svg class="sim-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="4 17 10 11 4 5"/>
+                      <line x1="12" y1="19" x2="20" y2="19"/>
+                    </svg>
+                    <div class="sim-tab-info">
+                      <span class="sim-tab-title">SYSTEM</span>
+                      <span class="sim-tab-sub">Telemetry &amp; Logs</span>
+                    </div>
+                  </button>
+                </div>
+
+                <!-- Account / Profile (Bottom of Sidebar) -->
+                <div class="sim-account">
+                  <div class="sim-avatar">
+                    <img src="./assets/core-BFzYh651.png" alt="Avatar">
+                  </div>
+                  <div class="sim-account-info">
+                    <span class="sim-username">Operative_01</span>
+                    <span class="sim-badge">PREMIUM</span>
+                  </div>
+                </div>
+              </aside>
+
+              <!-- CONTENT WORKSPACE (Right Column) -->
+              <div class="sim-workspace">
+                <!-- Topbar with dynamic breadcrumb -->
+                <div class="sim-topbar">
+                  <div class="sim-breadcrumb-group">
+                    <div class="sim-breadcrumb">
+                      CORE <span class="sep">//</span> <span id="simBreadcrumbTab">START</span>
+                    </div>
+                    <div class="sim-session-game">GAME: [CORE // RIVALS]</div>
+                  </div>
+                  <div class="sim-window-controls">
+                    <button class="sim-control-btn" id="simThemeBtn" type="button" title="Toggle Theme (Moon/Sun)">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                      </svg>
+                    </button>
+                    <a class="sim-control-btn" href="https://discord.gg/corehub" target="_blank" rel="noopener" title="Discord">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                      </svg>
+                    </a>
+                    <button class="sim-control-btn close" type="button" title="Close">
+                      &times;
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Scrolling Page Panel -->
+                <div class="sim-page-container">
+                  <!-- TAB 1: START (Overview & Telemetry) -->
+                  <div class="sim-tab-content active" id="simTab_start">
+                    <!-- Session Information Section -->
+                    <div class="sim-section">
+                      <div class="sim-section-header">
+                        <span class="sim-section-title">SESSION INFORMATION</span>
+                      </div>
+                      <div class="sim-section-body">
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">
+                              <svg class="ctrl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                              User: Operative_01 (ID: 3840291)
+                            </span>
+                            <span class="sim-card-desc">Account authorization active</span>
+                          </div>
+                        </div>
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">
+                              <svg class="ctrl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                              License Tier: Premium Key
+                            </span>
+                            <span class="sim-card-desc">Key Status: Active &bull; Lifetime</span>
+                          </div>
+                        </div>
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">
+                              <svg class="ctrl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                              Session Runtime: <span id="simRuntimeVal" style="color:#FF465A; margin-left:4px;">1h 1m 22s</span>
+                            </span>
+                            <span class="sim-card-desc">Elapsed in current game server</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- System Telemetry Section -->
+                    <div class="sim-section">
+                      <div class="sim-section-header">
+                        <span class="sim-section-title">SYSTEM TELEMETRY</span>
+                      </div>
+                      <div class="sim-section-body">
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">
+                              <svg class="ctrl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                              Network Latency: <span id="simPingVal" style="color:#2ECC71; margin-left:4px;">9 ms</span>
+                            </span>
+                            <span class="sim-card-desc">Data Ping Status: Optimal</span>
+                          </div>
+                        </div>
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">
+                              <svg class="ctrl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                              Client Performance: <span id="simFpsVal" style="color:#2ECC71; margin-left:4px;">60 FPS</span>
+                            </span>
+                            <span class="sim-card-desc">Roblox Engine Render Rate Locked</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Interactive License Tier Comparison Card -->
+                    <div class="sim-tier-comparison">
+                      <div class="sim-switcher-bar">
+                        <div class="sim-switcher-btn" data-tier="free">Free ($0)</div>
+                        <div class="sim-switcher-btn active" data-tier="premium">Premium</div>
+                        <div class="sim-switcher-btn" data-tier="booster">Booster</div>
+                      </div>
+                      <div style="display:flex; align-items:center; justify-content:space-between;">
+                        <strong id="simTierTitle" style="font-family:var(--font-display); font-size:0.95rem; color:#fff;">Premium Key</strong>
+                        <span id="simTierBadge" style="font-family:var(--font-mono); font-size:0.68rem; color:#FF2A42; background:#301218; padding:2px 8px; border-radius:3px;">one-time access</span>
+                      </div>
+                      <div class="sim-tier-perks" id="simTierPerks">
+                        <div class="sim-perk-row">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                          <span>Every current and future script</span>
+                        </div>
+                        <div class="sim-perk-row">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                          <span>No keysystem required</span>
+                        </div>
+                        <div class="sim-perk-row">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                          <span>Priority support, around the clock</span>
+                        </div>
+                        <div class="sim-perk-row">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                          <span>Premium Discord role</span>
+                        </div>
+                      </div>
+                      <a class="btn btn-primary sim-tier-cta" id="simTierCta" href="usd.html">
+                        Get Premium &bull; https://getcore.gg
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- TAB 2: COMBAT (Aim Assist & Silent Aim) -->
+                  <div class="sim-tab-content" id="simTab_combat">
+                    <div class="sim-section">
+                      <div class="sim-section-header">
+                        <span class="sim-section-title">AIM ENGINE HOOKS</span>
+                      </div>
+                      <div class="sim-section-body">
+                        <!-- Toggle: Silent Aim -->
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">Silent Aim</span>
+                            <span class="sim-card-desc">Redirect projectiles to target without camera snap</span>
+                          </div>
+                          <div class="sim-toggle checked" data-name="Silent Aim">
+                            <div class="sim-toggle-knob"></div>
+                          </div>
+                        </div>
+
+                        <!-- Toggle: Target Prediction -->
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">Velocity Prediction</span>
+                            <span class="sim-card-desc">Calculate ping and bullet travel trajectory</span>
+                          </div>
+                          <div class="sim-toggle checked" data-name="Velocity Prediction">
+                            <div class="sim-toggle-knob"></div>
+                          </div>
+                        </div>
+
+                        <!-- Slider: Hit Chance -->
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">Hit Chance</span>
+                            <span class="sim-card-desc">Probability curve for bullet interception</span>
+                          </div>
+                          <div class="sim-slider-wrap">
+                            <div class="sim-slider-track" data-min="0" data-max="100" data-unit="%">
+                              <div class="sim-slider-fill" style="width: 95%;">
+                                <div class="sim-slider-knob"></div>
+                              </div>
+                            </div>
+                            <div class="sim-slider-val">95%</div>
+                          </div>
+                        </div>
+
+                        <!-- Slider: Field of View -->
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">Field of View (FOV)</span>
+                            <span class="sim-card-desc">Radius angle for target acquisition</span>
+                          </div>
+                          <div class="sim-slider-wrap">
+                            <div class="sim-slider-track" data-min="10" data-max="360" data-unit="°">
+                              <div class="sim-slider-fill" style="width: 45%;">
+                                <div class="sim-slider-knob"></div>
+                              </div>
+                            </div>
+                            <div class="sim-slider-val">160°</div>
+                          </div>
+                        </div>
+
+                        <!-- Dropdown: Target Bone -->
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">Target Priority Bone</span>
+                            <span class="sim-card-desc">Preferred hit part index</span>
+                          </div>
+                          <div class="sim-dropdown-box">
+                            <span>Head</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- TAB 3: VISUALS (ESP & Wallhack) -->
+                  <div class="sim-tab-content" id="simTab_visuals">
+                    <div class="sim-section">
+                      <div class="sim-section-header">
+                        <span class="sim-section-title">ESP &amp; CHAMS ENGINE</span>
+                      </div>
+                      <div class="sim-section-body">
+                        <!-- Toggle: Box ESP -->
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">2D Bounding Boxes</span>
+                            <span class="sim-card-desc">Render responsive screen-space bounding boxes</span>
+                          </div>
+                          <div class="sim-toggle checked" data-name="Box ESP">
+                            <div class="sim-toggle-knob"></div>
+                          </div>
+                        </div>
+
+                        <!-- Toggle: Skeleton ESP -->
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">Skeleton Rig ESP</span>
+                            <span class="sim-card-desc">Draw real-time skeletal joint bones</span>
+                          </div>
+                          <div class="sim-toggle checked" data-name="Skeleton ESP">
+                            <div class="sim-toggle-knob"></div>
+                          </div>
+                        </div>
+
+                        <!-- Color Picker: Enemy Color -->
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">Enemy Accent Color</span>
+                            <span class="sim-card-desc">Chams and box stroke highlight</span>
+                          </div>
+                          <div class="sim-color-preview" title="Color Picker"></div>
+                        </div>
+
+                        <!-- Slider: Max Distance -->
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">Render Distance</span>
+                            <span class="sim-card-desc">Limit ESP telemetry range</span>
+                          </div>
+                          <div class="sim-slider-wrap">
+                            <div class="sim-slider-track" data-min="100" data-max="3000" data-unit="m">
+                              <div class="sim-slider-fill" style="width: 65%;">
+                                <div class="sim-slider-knob"></div>
+                              </div>
+                            </div>
+                            <div class="sim-slider-val">1980m</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- TAB 4: SYSTEM (Diagnostics & Real-time Logs) -->
+                  <div class="sim-tab-content" id="simTab_system">
+                    <div class="sim-section">
+                      <div class="sim-section-header">
+                        <span class="sim-section-title">CORE LOADER SPECIFICATION</span>
+                      </div>
+                      <div class="sim-section-body">
+                        <div class="sim-card">
+                          <div class="sim-card-text">
+                            <span class="sim-card-title">Auto-Strat Loader</span>
+                            <span class="sim-card-desc">https://getcore.gg/loader.lua</span>
+                          </div>
+                          <button class="btn btn-secondary btn-sm" type="button" onclick="navigator.clipboard.writeText('loadstring(game:HttpGet(\'https://getcore.gg/loader.lua\'))()')">
+                            COPY SPEC
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Live Diagnostics Logger Box -->
+                    <div class="sim-logger-box">
+                      <div class="sim-logger-top">
+                        <span class="sim-logger-title">SYSTEM LOGS &bull; REAL-TIME</span>
+                        <div class="sim-logger-actions">
+                          <span class="sim-logger-btn" id="simClearLogBtn">CLEAR</span>
+                          <span class="sim-logger-btn" id="simCopyLogBtn">COPY</span>
+                        </div>
+                      </div>
+                      <div class="sim-logger-content" id="simLogOutput">
+                        <div class="sim-log-row">
+                          <span class="log-time">[19:25:02]</span> <strong>[CORE]</strong> Desync bypass initialized
+                        </div>
+                        <div class="sim-log-row green">
+                          <span class="log-time">[19:25:03]</span> <strong>[TELEMETRY]</strong> 60 FPS locked, 0 dropped frames
+                        </div>
+                        <div class="sim-log-row crimson">
+                          <span class="log-time">[19:25:04]</span> <strong>[AUTH]</strong> License valid: Permanent Premium
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         LICENSE TIERS & SYSTEM ENTITLEMENTS
+         ======================================================================== -->
+    <section class="tiers-section" id="tiers">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">LICENSE TIERS</span>
+          <h2 class="section-title">TRANSPARENT ACCESS.</h2>
+          <p class="section-desc">
+            Choose your deployment model. Run our free community tier or unlock full unrestricted access with Premium.
+          </p>
+        </div>
+
+        <div class="tiers-grid">
+          <!-- Tier 1: Free -->
+          <article class="tier-card">
+            <h3 class="tier-name">Free Key</h3>
+            <p class="tier-tagline">Standard access via keysystem</p>
+            <div class="tier-price">$0 <span>forever</span></div>
+            <ul class="tier-features">
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Access to free scripts</span>
+              </li>
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Standard community support</span>
+              </li>
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Keysystem checkpoint access</span>
+              </li>
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Regular script updates</span>
+              </li>
+            </ul>
+            <button class="btn btn-secondary" id="freeTierCopyBtn" type="button">
+              COPY FREE LOADER
+            </button>
+          </article>
+
+          <!-- Tier 2: Premium (Featured) -->
+          <article class="tier-card featured">
+            <span class="tier-badge">RECOMMENDED</span>
+            <h3 class="tier-name">Premium Key</h3>
+            <p class="tier-tagline">Zero keysystem, lifetime full access</p>
+            <div class="tier-price">PREMIUM <span>one-time</span></div>
+            <ul class="tier-features">
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Every current and future script</span>
+              </li>
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>No keysystem required ever</span>
+              </li>
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Priority 24/7 dedicated support</span>
+              </li>
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Exclusive Discord VIP role &amp; channels</span>
+              </li>
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Immediate day-one game patches</span>
+              </li>
+            </ul>
+            <a class="btn btn-primary" href="usd.html">
+              UNLOCK PREMIUM &rarr;
+            </a>
+          </article>
+
+          <!-- Tier 3: Booster -->
+          <article class="tier-card">
+            <h3 class="tier-name">Booster Key</h3>
+            <p class="tier-tagline">Boost the Discord community</p>
+            <div class="tier-price">BOOST <span>server perk</span></div>
+            <ul class="tier-features">
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Access while boost is active</span>
+              </li>
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>No keysystem required</span>
+              </li>
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Special Server Booster Discord role</span>
+              </li>
+              <li class="tier-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Full access to all instances</span>
+              </li>
+            </ul>
+            <a class="btn btn-secondary" href="https://discord.gg/corehub" target="_blank" rel="noopener">
+              BOOST DISCORD
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         COMMUNITY & DISCORD SECTION
+         ======================================================================== -->
+    <section class="community-section">
+      <div class="container">
+        <div class="community-card">
+          <div class="community-info">
+            <div class="community-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+            </div>
+            <h3 class="community-title">Built together with the community.</h3>
+            <p class="community-desc">
+              Get release notes, support, previews and vote on the experiences Core supports next.
+            </p>
+            <div>
+              <a class="btn btn-primary" id="discordInviteBtn" href="https://discord.gg/getcore" target="_blank" rel="noopener">
+                JOIN DISCORD SERVER &nearr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Live Discord Widget Stats -->
+          <aside class="community-widget">
+            <div class="widget-status-row">
+              <span class="tech-label">Discord server</span>
+            </div>
+            <div>
+              <h4 class="widget-name" id="discordServerName">Core</h4>
+              <p class="widget-subtitle">Official community server</p>
+            </div>
+            <div class="widget-stats">
+              <div class="widget-avatars" id="discordAvatarStack">
+                <img src="./assets/Core-BFzYh651.png" alt="Avatar">
+              </div>
+              <div class="widget-counts">
+                <strong id="discordOnlineCount">2,400+ ONLINE NOW</strong>
+                <span>Active Members</span>
+              </div>
+            </div>
+            <a class="btn btn-secondary btn-sm" href="https://discord.gg/getcore" target="_blank" rel="noopener">
+              OPEN DISCORD INVITE
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         TECHNICAL FAQ ACCORDION
+         ======================================================================== -->
+    <section class="faq-section" id="faq">
+      <div class="container faq-wrap">
+        <div class="section-header">
+          <span class="section-kicker">FAQ</span>
+          <h2 class="section-title">GOOD TO KNOW.</h2>
+          <p class="section-desc">
+            Still have a question? The team and community can help you directly on Discord.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" type="button">
+            <span>How do I get a key?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-body">
+              Run one of our free scripts, then select "Get Key" inside the menu and follow the steps shown.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-trigger" type="button">
+              <span>Does Core support every device?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-body">
+                Core supports devices that can run a compatible executor. Availability may differ by platform and game.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button">
+              <span>Do I need Premium to use the scripts?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-body">
+                No. The free plan gives you access to free scripts through the keysystem. Premium adds exclusive scripts, removes the keysystem and includes priority support.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button">
+              <span>How frequently are scripts updated?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-body">
+                >We update scripts as games change and regularly add new ones. Complex game updates may occasionally take longer to support.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button">
+              <span>Can I request support for a new game?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-body">
+                Yes. Join our official Discord community and submit your request in the #suggestions channel.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-wordmark">CORE</span>
+        </div>
+        <p class="footer-copy">
+          CORE is an independent multi-game platform engineering team and is not affiliated with Roblox Corporation. All trademarks and brand names belong to their respective owners.
+        </p>
+        <div class="footer-links">
+          <a class="footer-link" href="#top">TOP</a>
+          <a class="footer-link" href="#library">LIBRARY</a>
+          <a class="footer-link" href="#tiers">TIERS</a>
+          <a class="footer-link" href="https://discord.gg/corehub" target="_blank" rel="noopener">DISCORD</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 CORE. ALL RIGHTS RESERVED.</span>
+        <span>ONE CORE. EVERY GAME.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./assets/core.js"></script>
+</body>
+</html>
