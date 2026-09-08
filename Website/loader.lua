@@ -14,5 +14,5 @@ local place_id = game.PlaceId
 if scripts[place_id] then
     loadstring(game:HttpGet(base_url .. scripts[place_id]))()
 else
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/DuxiiT/Aether/refs/heads/main/loader.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/DuxiiT/Core/refs/heads/main/Roblox/loader.lua"))()
 end
