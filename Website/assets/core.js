@@ -8,7 +8,7 @@
   'use strict';
 
   // Strict Global Loader Endpoint
-  const CORE_LOADER_SNIPPET = 'loadstring(game:HttpGet("https://getcore.gg/loader.lua"))()';
+  const CORE_LOADER_SNIPPET = 'loadstring(game:HttpGet("https://getcore.lol/loader.lua"))()';
 
   // Game Instances Database (Strict Format: CORE // [GAME])
   const INSTANCES = [
