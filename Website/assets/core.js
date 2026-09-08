@@ -844,7 +844,7 @@
           </div>
 
           <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:10px;">
-            <a class="btn btn-primary btn-sm" href="https://discord.gg/corehub" target="_blank" rel="noopener">
+            <a class="btn btn-primary btn-sm" href="https://discord.gg/getcore" target="_blank" rel="noopener">
               JOIN COMMUNITY DISCORD
             </a>
           </div>
