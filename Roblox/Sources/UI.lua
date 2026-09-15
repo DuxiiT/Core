@@ -1378,7 +1378,7 @@ function Library:Window(p)
 	UsernameLabel.TextTruncate = Enum.TextTruncate.AtEnd
 	UsernameLabel.LayoutOrder = 1
 
-	local isPremium = (type(JD_IS_PREMIUM) ~= 'nil' and JD_IS_PREMIUM)
+	local isPremium = (type(getgenv().IsPremium) ~= 'nil' and getgenv().IsPremium)
 
 	TypeBadge.Name = "TypeBadge"
 	TypeBadge.Parent = InfoFrame
@@ -3356,7 +3356,7 @@ function Library:Window(p)
 
 	local playerName = (game.Players.LocalPlayer and game.Players.LocalPlayer.Name) or "Player"
 	local playerUserId = (game.Players.LocalPlayer and game.Players.LocalPlayer.UserId) or 0
-	local keyType = (type(JD_IS_PREMIUM) ~= 'nil' and JD_IS_PREMIUM) and "Premium Key" or "Free Key"
+	local keyType = (type(getgenv().IsPremium) ~= 'nil' and getgenv().IsPremium) and "Premium Key" or "Free Key"
 
 	OverviewSec:Label({
 		Title = "User: " .. playerName .. " (ID: " .. tostring(playerUserId) .. ")",
@@ -3837,8 +3837,8 @@ function Library:Window(p)
 			end)
 
 			pcall(function()
-				if type(JD_EXPIRES_AT) == "number" then
-					local remain = JD_EXPIRES_AT - os.time()
+				if type(getgenv().ExpiresAt) == "number" then
+					local remain = getgenv().ExpiresAt - os.time()
 					if remain > 0 then
 						local d = math.floor(remain / 86400)
 						local h = math.floor((remain % 86400) / 3600)
