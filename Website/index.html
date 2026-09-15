@@ -41,7 +41,6 @@
       <!-- Right: Navigation Links & Primary Action -->
       <div class="nav-actions">
         <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
-          <a class="nav-link" href="#library">GAMES</a>
           <a class="nav-link" href="#simulator">UI</a>
           <a class="nav-link" href="#tiers">TIERS</a>
           <a class="nav-link" href="https://discord.gg/getcore" target="_blank" rel="noopener">DISCORD</a>
@@ -94,10 +93,7 @@
           <button class="btn btn-primary btn-lg" id="heroInitBtn" type="button">
             COPY LOADER
           </button>
-          <a class="btn btn-secondary btn-lg" href="#library">
-            EXPLORE LIBRARY &darr;
-          </a>
-          <a class="btn btn-ghost btn-lg" href="#simulator">
+          <a class="btn btn-secondary btn-lg" href="#simulator">
             UI PREVIEW &rarr;
           </a>
         </div>
@@ -109,8 +105,8 @@
             <span class="cell-val crimson">ONLINE</span>
           </div>
           <div class="telemetry-cell">
-            <span class="cell-title">SUPPORTED INSTANCES</span>
-            <span class="cell-val">20+ EXPERIENCES</span>
+            <span class="cell-title">SECURITY</span>
+            <span class="cell-val">UNDETECTED</span>
           </div>
           <div class="telemetry-cell">
             <span class="cell-title">PRICING</span>
@@ -158,7 +154,7 @@
               <div class="log-entry">
                 <span class="log-stamp">[0.004s]</span>
                 <span class="log-tag">[MODULES]</span>
-                <span class="log-msg">20 supported experiences available</span>
+                <span class="log-msg">All core modules loaded</span>
               </div>
               <div class="log-entry success">
                 <span class="log-stamp">[0.009s]</span>
@@ -167,44 +163,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================
-         SUPPORTED INSTANCES / GAME LIBRARY GRID
-         ======================================================================== -->
-    <section class="library-section" id="library">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-kicker">GAME LIBRARY</span>
-          <h2 class="section-title">Made for the games you actually play.</h2>
-          <p class="section-desc">
-            From competitive shooters to simulators, Core's library keeps expanding. Each experience gets tools designed around its own gameplay.
-          </p>
-        </div>
-
-        <!-- Library Filter & Search Controls -->
-        <div class="library-controls">
-          <div class="filter-group">
-            <button class="filter-btn active" type="button" data-filter="all">ALL INSTANCES</button>
-            <button class="filter-btn" type="button" data-filter="competitive">COMPETITIVE</button>
-            <button class="filter-btn" type="button" data-filter="survival">SURVIVAL</button>
-            <button class="filter-btn" type="button" data-filter="strategy">STRATEGY</button>
-            <button class="filter-btn" type="button" data-filter="simulator">SIMULATORS</button>
-          </div>
-          <div class="search-box">
-            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input class="search-input" id="librarySearch" type="text" placeholder="Search game or category..." aria-label="Search games">
-          </div>
-        </div>
-
-        <!-- Dynamic Game Grid (Rendered via core.js) -->
-        <div class="library-grid" id="libraryGrid">
-          <!-- Populated by JavaScript with strict CORE // [GAME] naming format -->
         </div>
       </div>
     </section>
@@ -863,7 +821,6 @@
         </p>
         <div class="footer-links">
           <a class="footer-link" href="#top">TOP</a>
-          <a class="footer-link" href="#library">LIBRARY</a>
           <a class="footer-link" href="#tiers">TIERS</a>
           <a class="footer-link" href="https://discord.gg/getcore" target="_blank" rel="noopener">DISCORD</a>
         </div>
