@@ -1378,6 +1378,9 @@ function Library:Window(p)
 	UsernameLabel.TextTruncate = Enum.TextTruncate.AtEnd
 	UsernameLabel.LayoutOrder = 1
 
+    print(getgenv().IsPremium)
+    print(getgenv().ExpiresAt)
+
 	local isPremium = (type(getgenv().IsPremium) ~= 'nil' and getgenv().IsPremium)
 
 	TypeBadge.Name = "TypeBadge"
