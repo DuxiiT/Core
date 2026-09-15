@@ -1378,9 +1378,6 @@ function Library:Window(p)
 	UsernameLabel.TextTruncate = Enum.TextTruncate.AtEnd
 	UsernameLabel.LayoutOrder = 1
 
-    print(getgenv().IsPremium)
-    print(getgenv().ExpiresAt)
-
 	local isPremium = (type(getgenv().IsPremium) ~= 'nil' and getgenv().IsPremium)
 
 	TypeBadge.Name = "TypeBadge"
@@ -3836,20 +3833,6 @@ function Library:Window(p)
 				if pingStat then
 					local pingVal = math.round(pingStat:GetValue())
 					PingLabel:SetTitle(string.format("Network Latency (Ping): %d ms", pingVal))
-				end
-			end)
-
-			pcall(function()
-				if type(getgenv().ExpiresAt) == "number" then
-					local remain = getgenv().ExpiresAt - os.time()
-					if remain > 0 then
-						local d = math.floor(remain / 86400)
-						local h = math.floor((remain % 86400) / 3600)
-						local m = math.floor((remain % 3600) / 60)
-						KeyStatusLabel:SetDesc(string.format("Key Expires in: %dd %dh %dm", d, h, m))
-					else
-						KeyStatusLabel:SetDesc("Key Status: Expired")
-					end
 				end
 			end)
 		end
